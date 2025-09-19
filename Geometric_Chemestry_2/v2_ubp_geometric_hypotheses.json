@@ -1,0 +1,606 @@
+{
+  "hypotheses": [
+    {
+      "hypothesis_id": "UBP_GH_000",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.6066, Average UBP energy: -3.81e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.6065545142881805,
+        "nrci_variance": 0.005506860032287589,
+        "mean_energy": -38063583231371.54,
+        "energy_range": 14253386802218.375,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5202494138217473,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3806.358323137154,
+      "confidence_score": 0.6065545142881805,
+      "nrci_validation": 0.7651272605701847,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5202) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3806.3583 (pKi units)",
+        "Energy range (1.43e+13) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.7106918860272387,
+        "energy_state": -37006954485035.74,
+        "temporal_phase": 2.5314536254974024e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_001",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.6160, Average UBP energy: -4.35e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.6159738333747907,
+        "nrci_variance": 0.010172258918749578,
+        "mean_energy": -43453433035842.52,
+        "energy_range": 6817499715733.477,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5269144206474531,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -4345.343303584253,
+      "confidence_score": 0.6159738333747907,
+      "nrci_validation": 0.7672355208483486,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5269) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -4345.3433 (pKi units)",
+        "Energy range (6.82e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5650562899488153,
+        "energy_state": -47306707905835.26,
+        "temporal_phase": 2.8480495323468878e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_002",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5514, Average UBP energy: -4.41e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5514393889935773,
+        "nrci_variance": 0.0005743466461362802,
+        "mean_energy": -44082332816651.375,
+        "energy_range": 8533578809907.789,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5291406443586589,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -4408.233281665138,
+      "confidence_score": 0.5514393889935773,
+      "nrci_validation": 0.7339181686027073,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5291) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -4408.2333 (pKi units)",
+        "Energy range (8.53e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5650562899488153,
+        "energy_state": -47306707905835.26,
+        "temporal_phase": 2.8480495323468878e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_003",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5681, Average UBP energy: -4.17e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.568065773579699,
+        "nrci_variance": 0.003459931059860881,
+        "mean_energy": -41717757519503.57,
+        "energy_range": 15672818834067.316,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5131926033571793,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -4171.775751950357,
+      "confidence_score": 0.568065773579699,
+      "nrci_validation": 0.7438213969970189,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5132) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -4171.7758 (pKi units)",
+        "Energy range (1.57e+13) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5274988415354026,
+        "energy_state": -34441396163636.566,
+        "temporal_phase": 2.204031265727444e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_004",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5931, Average UBP energy: -3.96e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5931417988258888,
+        "nrci_variance": 0.005373337621932057,
+        "mean_energy": -39613729445059.78,
+        "energy_range": 13268568131972.504,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5226207448330101,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3961.372944505978,
+      "confidence_score": 0.5931417988258888,
+      "nrci_validation": 0.757520852888006,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5226) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3961.3729 (pKi units)",
+        "Energy range (1.33e+13) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5648169704190772,
+        "energy_state": -47372782650317.09,
+        "temporal_phase": 2.8383925693046976e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_005",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5618, Average UBP energy: -3.81e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5618327990093573,
+        "nrci_variance": 0.0034073533262847636,
+        "mean_energy": -38113639497051.04,
+        "energy_range": 12378464596012.254,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5044386968975226,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3811.363949705104,
+      "confidence_score": 0.5618327990093573,
+      "nrci_validation": 0.7423355524306914,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5044) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3811.3639 (pKi units)",
+        "Energy range (1.24e+13) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5343115549234267,
+        "energy_state": -43337271662751.414,
+        "temporal_phase": 2.476569709764644e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_006",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5248, Average UBP energy: -4.58e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5247902141658701,
+        "nrci_variance": 0.000216158936687799,
+        "mean_energy": -45822642372938.414,
+        "energy_range": 5988617386947.492,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5153249155849965,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -4582.264237293842,
+      "confidence_score": 0.5247902141658701,
+      "nrci_validation": 0.7195741032260957,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5153) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -4582.2642 (pKi units)",
+        "Energy range (5.99e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.508916146844345,
+        "energy_state": -44821479433815.2,
+        "temporal_phase": 2.557034249798174e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_007",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5582, Average UBP energy: -4.66e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5581563306660494,
+        "nrci_variance": 0.002486826682692254,
+        "mean_energy": -46644240989083.12,
+        "energy_range": 7838430287096.398,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5091820228940992,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -4664.424098908312,
+      "confidence_score": 0.5581563306660494,
+      "nrci_validation": 0.7360596872794489,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5092) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -4664.4241 (pKi units)",
+        "Energy range (7.84e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5282994947862365,
+        "energy_state": -50801995903077.18,
+        "temporal_phase": 2.9993521053259566e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_008",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5747, Average UBP energy: -3.43e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5747470696983059,
+        "nrci_variance": 0.002333393490240304,
+        "mean_energy": -34324598431099.97,
+        "energy_range": 8581088433455.434,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5166599853124059,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3432.4598431099967,
+      "confidence_score": 0.5747470696983059,
+      "nrci_validation": 0.7509892772119775,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5167) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3432.4598 (pKi units)",
+        "Energy range (8.58e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5380230213798721,
+        "energy_state": -31463751328207.105,
+        "temporal_phase": 1.9769988035717644e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_009",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.6384, Average UBP energy: -3.84e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.6383613715030719,
+        "nrci_variance": 0.012456753215908884,
+        "mean_energy": -38422007712406.57,
+        "energy_range": 8838766338677.633,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5130659011046024,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3842.200771240657,
+      "confidence_score": 0.6383613715030719,
+      "nrci_validation": 0.7810847726373411,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5131) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3842.2008 (pKi units)",
+        "Energy range (8.84e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5999923551929516,
+        "energy_state": -34587631892246.875,
+        "temporal_phase": 2.224044071384611e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_010",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5216, Average UBP energy: -3.70e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5215694883861756,
+        "nrci_variance": 0.00028379884340900494,
+        "mean_energy": -36991121572946.625,
+        "energy_range": 12913104137547.527,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5254882022491806,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3699.1121572946627,
+      "confidence_score": 0.5215694883861756,
+      "nrci_validation": 0.7224543657415764,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5255) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3699.1122 (pKi units)",
+        "Energy range (1.29e+13) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5166682748098349,
+        "energy_state": -36167393128789.97,
+        "temporal_phase": 2.1248325090379504e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_011",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.6204, Average UBP energy: -3.75e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.6204428818769713,
+        "nrci_variance": 0.004647951781256454,
+        "mean_energy": -37486889539776.12,
+        "energy_range": 4785752910024.895,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5101641164946052,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3748.6889539776116,
+      "confidence_score": 0.6204428818769713,
+      "nrci_validation": 0.7723619345595392,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5102) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3748.6890 (pKi units)",
+        "Energy range (4.79e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.6880592803701108,
+        "energy_state": -39254917329288.61,
+        "temporal_phase": 2.624295663184946e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_012",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5877, Average UBP energy: -3.81e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5877277912790336,
+        "nrci_variance": 0.007564041899004568,
+        "mean_energy": -38129081419500.21,
+        "energy_range": 22196389979329.293,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5185855778347436,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3812.908141950021,
+      "confidence_score": 0.5877277912790336,
+      "nrci_validation": 0.7558999177459765,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5186) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3812.9081 (pKi units)",
+        "Energy range (2.22e+13) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5286822168829677,
+        "energy_state": -27591949897067.793,
+        "temporal_phase": 1.814126671152745e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_013",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.6144, Average UBP energy: -3.69e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.6143771193650067,
+        "nrci_variance": 0.006336352509297747,
+        "mean_energy": -36933004150903.35,
+        "energy_range": 9651227670919.082,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5133295057415359,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -3693.3004150903353,
+      "confidence_score": 0.6143771193650067,
+      "nrci_validation": 0.7696995994968141,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5133) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -3693.3004 (pKi units)",
+        "Energy range (9.65e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5038289623625686,
+        "energy_state": -30946433726251.19,
+        "temporal_phase": 1.844462250279901e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    },
+    {
+      "hypothesis_id": "UBP_GH_014",
+      "molecular_pattern": "UBP molecular pattern with dominant quantum realm characteristics. Average NRCI: 0.5327, Average UBP energy: -4.08e+13. Moderate coherence pattern with emerging geometric structure.",
+      "geometric_signature": {
+        "mean_nrci": 0.5326937582088128,
+        "nrci_variance": 0.00032382461709535497,
+        "mean_energy": -40818585589299.06,
+        "energy_range": 8729522806632.9375,
+        "phase_coherence": 1.0,
+        "biological_distribution": 0.0909090909090909,
+        "quantum_distribution": 0.9090909090909091,
+        "phi_resonance": 0.5266311325162211,
+        "pi_resonance": 0.3692023381529519
+      },
+      "predicted_activity": -4081.8585589299064,
+      "confidence_score": 0.5326937582088128,
+      "nrci_validation": 0.7260201593077842,
+      "supporting_evidence": [
+        "High temporal phase coherence (1.0000) indicates synchronized dynamics",
+        "Golden ratio resonance (0.5266) suggests natural geometric optimization",
+        "Strong quantum realm presence (0.909) supports quantum activity"
+      ],
+      "testable_predictions": [
+        "Predicted biological activity: -4081.8586 (pKi units)",
+        "Energy range (8.73e+12) suggests multiple conformational states",
+        "Quantum effects contribute to molecular recognition (e/12 frequency)",
+        "Temporal dynamics should maintain phase coherence across measurement timescales"
+      ],
+      "ubp_encoding_summary": {
+        "n_offbits": 11,
+        "nrci_score": 0.5235856109998707,
+        "energy_state": -41391447703684.32,
+        "temporal_phase": 2.5369922947822003e-40,
+        "realm_distribution": {
+          "biological": 0.09090909090909091,
+          "quantum": 0.9090909090909091
+        }
+      }
+    }
+  ],
+  "validation_results": {
+    "n_hypotheses": 15,
+    "mean_confidence": 0.577991608881386,
+    "mean_nrci_validation": 0.7496068379695674,
+    "baseline_comparison": {
+      "baseline_best_r2": 0.6233,
+      "ubp_mean_confidence": 0.577991608881386,
+      "improvement_ratio": 0.9273088542938971
+    },
+    "ubp_advantages": [
+      "High NRCI validation scores indicate superior geometric coherence"
+    ],
+    "realm_diversity": 2
+  },
+  "generation_timestamp": 1758249915.2577083,
+  "ubp_version": "3.2+",
+  "study_version": "v2"
+}

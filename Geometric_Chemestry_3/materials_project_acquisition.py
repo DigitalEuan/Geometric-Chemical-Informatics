@@ -287,7 +287,7 @@ def main():
     """Main execution function"""
     
     # Initialize with API key
-    api_key = "QgtXNTeNADmxywaU4nAWo7oI5aT8J4g4"
+    api_key = "[entery your own API here]"
     
     # Create acquisition instance
     mp_acq = MaterialsProjectAcquisition(api_key)

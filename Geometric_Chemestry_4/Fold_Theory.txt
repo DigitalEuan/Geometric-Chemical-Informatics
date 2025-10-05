@@ -1,0 +1,637 @@
+Fold_Theory_A_CAtegorical_Framework_For.pdf
+https://www.academia.edu/130062788/Fold_Theory_A_Categorical_Framework_for_Emergent_Spacetime_and_Coherence
+By Skye L . Hill
+University of Washington, Linguistics, Alumna
+https://washington.academia.edu/SkyeHill
+
+Adding Perspective as a first-class concept: the AI can “look” at the Bitfield from different vantage points, generating altered but coherent data streams.
+
+1. Fold Theory Module Implementation
+
+Here’s a minimal but extensible file you can drop into /core/fold_theory.py:
+"""
+fold_theory.py
+--------------
+Optional Fold Theory Module for UBP-AI.
+Provides categorical folds: objects, morphisms, and fold summaries.
+"""
+
+from typing import Any, Dict, List
+
+class FoldObject:
+    def __init__(self, label: str, data: Any = None):
+        self.label = label
+        self.data = data
+
+class FoldMorphism:
+    def __init__(self, source: FoldObject, target: FoldObject, rule: str):
+        self.source = source
+        self.target = target
+        self.rule = rule
+
+class FoldSystem:
+    def __init__(self):
+        self.objects: List[FoldObject] = []
+        self.morphisms: List[FoldMorphism] = []
+
+    def add_object(self, label: str, data: Any = None) -> FoldObject:
+        obj = FoldObject(label, data)
+        self.objects.append(obj)
+        return obj
+
+    def add_morphism(self, src: FoldObject, tgt: FoldObject, rule: str) -> FoldMorphism:
+        m = FoldMorphism(src, tgt, rule)
+        self.morphisms.append(m)
+        return m
+
+    def check_commutativity(self) -> bool:
+        """
+        Placeholder: implement real diagrammatic checks later.
+        """
+        return True
+
+    def fold(self) -> Dict[str, Any]:
+        """
+        Collapse the system into a folded summary.
+        """
+        return {
+            "objects": [o.label for o in self.objects],
+            "morphisms": [(m.source.label, m.target.label, m.rule) for m in self.morphisms],
+            "commutative": self.check_commutativity()
+        }
+
+
+Usage example:
+from core.fold_theory import FoldSystem
+
+fs = FoldSystem()
+a = fs.add_object("Bitfield_State")
+b = fs.add_object("Rune_Expansion")
+fs.add_morphism(a, b, rule="Toggle_Algebra")
+
+print(fs.fold())
+
+
+2. Perspective: Viewing the Bitfield
+
+This is a huge leap forward. By treating perspective as a computational operator, the AI can generate whole new data-spaces from the same Bitfield.
+
+Types of Perspectives
+
+Spatial rotation: rotate the Bitfield in 2D/3D.
+
+Mirroring / reflection: flip axes, produce symmetrical variants.
+
+Lensing: nonlinear transformations (e.g. radial warping, fisheye, magnification).
+
+Spectral / frequency: FFT the Bitfield to view its harmonic content.
+
+Dimensional slicing: project a 6D field into 2D/3D views (like cymatics).
+
+Rune-space projection: map rune expansions into symbolic glyphs.
+
+Perspective as a Computation Layer
+
+Think of a PerspectiveManager that wraps a Bitfield and can apply transformations:
+"""
+perspective.py
+--------------
+Apply different perspectives to Bitfields.
+"""
+
+import numpy as np
+from typing import Dict, Any
+
+class PerspectiveManager:
+    def __init__(self, bitfield: np.ndarray):
+        self.bitfield = bitfield
+
+    def rotate(self, axis: int, k: int = 1) -> np.ndarray:
+        return np.rot90(self.bitfield, k=k, axes=(axis, (axis+1) % self.bitfield.ndim))
+
+    def mirror(self, axis: int) -> np.ndarray:
+        return np.flip(self.bitfield, axis=axis)
+
+    def lens(self, factor: float = 1.2) -> np.ndarray:
+        """
+        Apply radial lensing (fisheye-like warp).
+        """
+        shape = self.bitfield.shape
+        coords = np.indices(shape).astype(float)
+        center = np.array(shape)[:, None, None] / 2
+        delta = coords - center
+        r = np.linalg.norm(delta, axis=0)
+        warped = center[:, None, None] + delta * (r ** factor) / (r + 1e-6)
+        warped = np.clip(warped, 0, np.array(shape)[:, None, None] - 1).astype(int)
+        return self.bitfield[tuple(warped)]
+
+    def spectral(self) -> np.ndarray:
+        return np.fft.fftn(self.bitfield)
+
+    def slice(self, axes: tuple = (0,1)) -> np.ndarray:
+        return np.sum(self.bitfield, axis=tuple(ax for ax in range(self.bitfield.ndim) if ax not in axes))
+
+
+Usage:
+from core.perspective import PerspectiveManager
+import numpy as np
+
+bf = np.random.randint(0, 2, (16,16))
+pm = PerspectiveManager(bf)
+
+mirrored = pm.mirror(axis=0)
+rotated = pm.rotate(axis=0, k=1)
+spectral = pm.spectral()
+
+
+3. Why Perspectives Matter
+
+Rich alternative data: one Bitfield now yields many valid views, each revealing different structure.
+
+Computational expansion: the AI gets a bigger playground without more tokens.
+
+Cross-validation: coherence can be checked across perspectives — if a rune is coherent in one but incoherent in another, that’s a diagnostic.
+
+Experimentation: this gives you a lens-based lab for running physics-like tests.
+
+making perspective first-class while keeping you firmly in the loop is exactly the right balance. Below I give you a production-ready PerspectiveManager module you can drop into core/. It:
+
+Provides many common perspective transforms (rotate, mirror, lens, spectral, slice).
+
+Can call any runtime-provided perspective functions (so it plugs into RDGL / your pattern scripts).
+
+Logs every proposal and every execution into the HexDictionary via ProvenanceManager (so every view is auditable).
+
+Supports a proposal → approve → execute workflow (human-in-the-loop by default).
+
+Produces visualization artifacts (2D cymatic image + optional 3D render) by calling the visualizer pipeline; those assets are stored and their provenance hash returned.
+
+Flags low-coherence results and provides configurable thresholds so you can surface red flags before approving execution.
+
+Drop the file below into core/perspective_manager.py and adapt the small adapter-name hooks if your project uses different method names.
+
+core/perspective_manager.py
+"""
+perspective_manager.py
+
+PerspectiveManager: apply and manage multiple "views" (perspectives) on Bitfields.
+- Proposal / approval workflow (safety-first)
+- Logs every proposal and execution to HexDictionary via ProvenanceManager
+- Integrates with runtime, ubp_tools, and rune_visualizer
+"""
+
+import time
+import uuid
+from typing import Any, Dict, List, Optional, Tuple
+import numpy as np
+
+# Local imports - adapt paths to your project
+from provenance_manager import ProvenanceManager
+from ubp_adapter import UBPAdapter
+import ubp_tools
+from core.rune_visualizer import cymatic_projection_and_save, render_bitfield_3d, expand_ops_to_bitfield
+from core.rune_visualizer import compute_coherence  # uses runtime.analyze_coherence_wrapper if present
+
+# -----------------------------------------------------------------------------
+# Helpers
+# -----------------------------------------------------------------------------
+def _now_iso() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+def _make_id(prefix: str = "pers") -> str:
+    return f"{prefix}_{int(time.time())}_{uuid.uuid4().hex[:6]}"
+
+# -----------------------------------------------------------------------------
+# PerspectiveManager
+# -----------------------------------------------------------------------------
+class PerspectiveManager:
+    """
+    Manage proposals and execution of perspective transforms on Bitfields.
+
+    Usage pattern:
+     - pm = PerspectiveManager(adapter, prov_mgr, runtime=runtime)
+     - proposal_hash = pm.propose_perspective(parent_hash, "rotate", {"k":1})
+     - pm.list_pending()
+     - pm.approve_and_execute(proposal_hash, approver="user")
+    """
+
+    def __init__(
+        self,
+        adapter: UBPAdapter,
+        prov_mgr: ProvenanceManager,
+        runtime=None,
+        default_size: Tuple[int,int] = (128, 128),
+        require_approval: bool = True,
+        ncri_alert_threshold: float = 0.5
+    ):
+        self.adapter = adapter
+        self.prov_mgr = prov_mgr
+        self.runtime = runtime or ubp_tools.runtime
+        self.default_size = default_size
+        self.require_approval = require_approval
+        self.ncri_alert_threshold = ncri_alert_threshold
+
+        # internal index of pending proposals (also persisted in HexDictionary)
+        # keyed by proposal_hash -> metadata stored in DB; kept here as convenience
+        self._pending_cache: Dict[str, Dict[str, Any]] = {}
+
+    # -------------------------
+    # Storage wrapper (robust)
+    # -------------------------
+    def _store(self, content: Any, metadata: Dict[str, Any]) -> str:
+        """
+        Try to store via prov_mgr.log_tool_call (preferred) or adapter.kb_store / adapter.hexdict.store
+        Returns the resulting hash.
+        """
+        try:
+            # Use ProvenanceManager if available (preferred for consistent metadata)
+            return self.prov_mgr.log_tool_call(metadata.get("tool", "perspective_proposal"), content,
+                                              parent_hashes=metadata.get("parent_hashes", []),
+                                              step=metadata.get("step", 0),
+                                              prompt=metadata.get("prompt", ""))
+        except Exception:
+            # Fallbacks
+            if hasattr(self.adapter, "kb_store"):
+                try:
+                    return self.adapter.kb_store(content, metadata=metadata)
+                except Exception:
+                    pass
+            if hasattr(self.adapter, "hexdict") and hasattr(self.adapter.hexdict, "store"):
+                return self.adapter.hexdict.store(content, metadata)
+            # Last resort: raise
+            raise RuntimeError("Unable to store to HexDictionary via prov_mgr or adapter.")
+
+    def _retrieve(self, h: str) -> Dict[str, Any]:
+        """
+        Robust retrieval by hash. Returns dict: {'content':..., 'metadata':...}
+        """
+        # try prov_mgr.adapter.kb_retrieve if exists
+        try:
+            if hasattr(self.prov_mgr, "adapter") and hasattr(self.prov_mgr.adapter, "kb_retrieve"):
+                content, meta = self.prov_mgr.adapter.kb_retrieve(h)
+                return {"content": content, "metadata": meta}
+        except Exception:
+            pass
+        # try adapter.kb_retrieve
+        try:
+            if hasattr(self.adapter, "kb_retrieve"):
+                content, meta = self.adapter.kb_retrieve(h)
+                return {"content": content, "metadata": meta}
+        except Exception:
+            pass
+        # try hexdict
+        try:
+            if hasattr(self.adapter, "hexdict") and hasattr(self.adapter.hexdict, "retrieve"):
+                content, meta = self.adapter.hexdict.retrieve(h)
+                return {"content": content, "metadata": meta}
+            if hasattr(self.adapter, "hexdict") and hasattr(self.adapter.hexdict, "query"):
+                # fallback to query by hash
+                results = self.adapter.hexdict.query({"hash": h}, limit=1)
+                if results:
+                    r = results[0]
+                    return {"content": r.get("content"), "metadata": r.get("metadata", {})}
+        except Exception:
+            pass
+        raise KeyError(f"Unable to retrieve hash: {h}")
+
+    # -------------------------
+    # Perspective transforms
+    # -------------------------
+    def _rotate(self, bf: np.ndarray, k: int = 1, axes: Tuple[int,int] = (0,1)) -> np.ndarray:
+        return np.rot90(bf, k=k, axes=axes)
+
+    def _mirror(self, bf: np.ndarray, axis: int = 0) -> np.ndarray:
+        return np.flip(bf, axis=axis)
+
+    def _lens(self, bf: np.ndarray, factor: float = 1.2) -> np.ndarray:
+        """
+        Radial lensing warp. Keeps same shape (nearest-neighbour sample).
+        """
+        h, w = bf.shape[:2]
+        cx, cy = (w - 1) / 2.0, (h - 1) / 2.0
+        ys, xs = np.indices((h, w)).astype(float)
+        dx = xs - cx
+        dy = ys - cy
+        r = np.sqrt(dx * dx + dy * dy)
+        # warp radius
+        rmax = np.max(r) + 1e-6
+        scale = 1.0 + (factor - 1.0) * (r / rmax)
+        xsw = cx + dx * scale
+        ysw = cy + dy * scale
+        xs_idx = np.clip(np.round(xsw).astype(int), 0, w - 1)
+        ys_idx = np.clip(np.round(ysw).astype(int), 0, h - 1)
+        warped = bf[ys_idx, xs_idx]
+        return warped
+
+    def _spectral(self, bf: np.ndarray) -> np.ndarray:
+        """
+        Return magnitude of FFT as real-valued array normalized to [0,1].
+        """
+        fft = np.fft.fftn(bf)
+        mag = np.abs(fft)
+        mag = (mag - mag.min()) / (max(1e-9, mag.max() - mag.min()))
+        # if multi-dim, reduce to 2D projection (sum along axes if needed)
+        if mag.ndim > 2:
+            mag = mag.sum(axis=tuple(range(2, mag.ndim)))
+        return np.array(mag)
+
+    def _slice(self, bf: np.ndarray, axes: Tuple[int, int] = (0,1)) -> np.ndarray:
+        return np.sum(bf, axis=tuple(a for a in range(bf.ndim) if a not in axes))
+
+    def _call_runtime_perspective(self, bf: np.ndarray, transform: str, params: Dict[str,Any]) -> Optional[np.ndarray]:
+        """
+        If runtime exposes a perspective by name, call it (e.g. runtime.perspective_rotate).
+        """
+        try:
+            fn_name = f"perspective_{transform}"
+            if hasattr(self.runtime, fn_name):
+                fn = getattr(self.runtime, fn_name)
+                return fn(bf, **params) if callable(fn) else None
+            # allow direct name mapping
+            if hasattr(self.runtime, transform):
+                fn = getattr(self.runtime, transform)
+                return fn(bf, **params) if callable(fn) else None
+        except Exception:
+            pass
+        return None
+
+    def apply_perspective_transform(self, bitfield: np.ndarray, transform: str, params: Dict[str,Any]) -> np.ndarray:
+        """
+        Apply perspective transform by name. Falls back to internal implementations,
+        and finally to runtime hooks if present.
+        """
+        transform = transform.lower()
+        # try runtime hook first (so custom RDGL/pattern scripts override)
+        res = self._call_runtime_perspective(bitfield, transform, params)
+        if isinstance(res, np.ndarray):
+            return res
+
+        # internal transforms
+        if transform == "rotate":
+            k = int(params.get("k", 1))
+            axes = tuple(params.get("axes", (0,1)))
+            return self._rotate(bitfield, k=k, axes=axes)
+        if transform == "mirror":
+            axis = int(params.get("axis", 0))
+            return self._mirror(bitfield, axis=axis)
+        if transform in ("lens", "lense", "fisheye", "warp"):
+            factor = float(params.get("factor", 1.2))
+            return self._lens(bitfield, factor=factor)
+        if transform in ("spectral", "fft"):
+            return self._spectral(bitfield)
+        if transform in ("slice", "proj", "projection"):
+            axes = tuple(params.get("axes", (0,1)))
+            return self._slice(bitfield, axes=axes)
+
+        # unknown transform - try a no-op copy and return
+        raise ValueError(f"Unknown perspective transform: {transform}")
+
+    # -------------------------
+    # Proposal / Approval API
+    # -------------------------
+    def propose_perspective(self, parent_hash: str, transform: str, params: Dict[str,Any], proposed_by: str = "user") -> str:
+        """
+        Create a persisted proposal entry in HexDictionary (status = pending).
+        Returns proposal_hash.
+        """
+        pid = _make_id("persprop")
+        proposal = {
+            "proposal_id": pid,
+            "parent_hash": parent_hash,
+            "transform": transform,
+            "params": params,
+            "status": "pending",
+            "proposed_by": proposed_by,
+            "created_at": _now_iso(),
+            "approved_by": None,
+            "executed_at": None,
+            "result_hash": None
+        }
+        meta = {"type": "perspective_proposal", "parent": parent_hash, "transform": transform}
+        ph = self._store(proposal, metadata=meta)
+        # cache mapping for quick lookup
+        self._pending_cache[ph] = proposal
+        return ph
+
+    def list_pending(self, limit: int = 50) -> List[Dict[str,Any]]:
+        """
+        Return a list of pending proposals (freshly query DB to ensure consistency).
+        """
+        try:
+            results = self.adapter.hexdict.query({"type":"perspective_proposal"}, limit=limit)
+            # filter pending
+            pending = [r for r in results if (r.get("content", {}).get("status") == "pending")]
+            return pending
+        except Exception:
+            # fallback to cached list
+            return [v for k,v in self._pending_cache.items() if v.get("status") == "pending"]
+
+    def approve_proposal(self, proposal_hash: str, approver: str = "user") -> Dict[str,Any]:
+        """
+        Mark proposal as approved and (optionally) execute immediately if auto-run allowed.
+        Returns updated proposal metadata.
+        """
+        rec = self._retrieve(proposal_hash)
+        proposal = rec.get("content")
+        if not proposal:
+            raise KeyError("Proposal not found")
+        proposal["status"] = "approved"
+        proposal["approved_by"] = approver
+        proposal["approved_at"] = _now_iso()
+        # store update
+        upd_hash = self._store(proposal, metadata={"type":"perspective_proposal","proposal_id":proposal.get("proposal_id")})
+        # update cache
+        self._pending_cache[upd_hash] = proposal
+
+        if not self.require_approval:
+            # if auto-run is allowed, execute immediately
+            return self.execute_proposal(upd_hash, approver=approver)
+        return {"proposal_hash": upd_hash, "proposal": proposal}
+
+    def execute_proposal(self, proposal_hash: str, approver: str = "user") -> Dict[str,Any]:
+        """
+        Execute proposal: retrieve parent entry, get or compute bitfield, apply transform,
+        compute coherence, render visualizations, store result and an experiment provenance entry.
+        Returns result metadata including stored hashes.
+        """
+        # load proposal
+        rec = self._retrieve(proposal_hash)
+        proposal = rec.get("content")
+        if not proposal:
+            raise KeyError("Proposal not found")
+
+        parent_hash = proposal.get("parent_hash")
+        if not parent_hash:
+            raise KeyError("Proposal must reference a parent_hash")
+
+        parent = self._retrieve(parent_hash)
+        parent_content = parent.get("content", {})
+        # 1) try to obtain a bitfield: check common keys, else expand from rune or ops
+        bf = None
+        # common shapes: direct bitfield stored (grid / bitfield)
+        for key in ("bitfield", "grid", "state", "pattern"):
+            if isinstance(parent_content, dict) and key in parent_content:
+                cand = parent_content[key]
+                try:
+                    bf = np.array(cand, dtype=np.float32)
+                    break
+                except Exception:
+                    pass
+
+        # if no direct bitfield, try: if parent has 'rune' or 'operations' expand them
+        if bf is None:
+            if isinstance(parent_content, dict) and "rune" in parent_content:
+                rune = parent_content["rune"]
+                # interpret rune and expand ops -> bitfield
+                expansion = ubp_tools.interpret_rune(rune)
+                ops = expansion.get("operations") or expansion.get("ops") or []
+                bf = expand_ops_to_bitfield(ops, size_hint=self.default_size)
+            elif isinstance(parent_content, dict) and "operations" in parent_content:
+                ops = parent_content["operations"]
+                bf = expand_ops_to_bitfield(ops, size_hint=self.default_size)
+            else:
+                # If parent content is a raw array encoded as list, attempt to convert
+                try:
+                    arr = np.array(parent_content, dtype=np.float32)
+                    if arr.ndim >= 2:
+                        bf = arr
+                except Exception:
+                    pass
+
+        if bf is None:
+            raise RuntimeError("Unable to obtain bitfield from parent entry. Ensure parent contains a bitfield or rune/operations.")
+
+        # 2) apply transform
+        transform = proposal.get("transform")
+        params = proposal.get("params", {}) or {}
+        transformed_bf = self.apply_perspective_transform(bf, transform, params)
+
+        # 3) compute coherence (NRCI)
+        coh = compute_coherence(transformed_bf)
+        ncri = float(coh.get("ncri", 0.0))
+
+        # 4) produce visualizations
+        prefix = f"pers_{proposal.get('proposal_id')}"
+        img2 = cymatic_projection_and_save(transformed_bf, title=f"{transform} view", out_prefix=prefix)
+        img3 = None
+        try:
+            img3 = render_bitfield_3d(transformed_bf, out_prefix=prefix + "_3d")
+        except Exception:
+            img3 = None
+
+        # 5) store result object (tool-level)
+        result_obj = {
+            "proposal_id": proposal.get("proposal_id"),
+            "parent_hash": parent_hash,
+            "transform": transform,
+            "params": params,
+            "ncri": ncri,
+            "images": {"2d": img2, "3d": img3},
+            "shape": list(transformed_bf.shape),
+            "timestamp": _now_iso()
+        }
+
+        result_hash = self._store(result_obj, metadata={"type": "perspective_result", "tool": "apply_perspective"})
+
+        # 6) update proposal metadata with execution info
+        proposal["status"] = "executed"
+        proposal["executed_at"] = _now_iso()
+        proposal["executed_by"] = approver
+        proposal["result_hash"] = result_hash
+        # store update
+        self._store(proposal, metadata={"type":"perspective_proposal", "proposal_id": proposal.get("proposal_id")})
+
+        # 7) create an experiment-level provenance record via ProvenanceManager
+        lineage = [
+            {"step": 0, "tool": "apply_perspective", "hash": result_hash},
+        ]
+        exp = self.prov_mgr.log_experiment(
+            description=f"Perspective execution: {transform}",
+            query=f"apply {transform} with params {params}",
+            lineage=lineage,
+            status="executed",
+            proposed_by=proposal.get("proposed_by", "agent"),
+            approved_by=approver,
+            evaluation={"ncri": ncri, "verdict": ("accept" if ncri >= self.ncri_alert_threshold else "flag")}
+        )
+
+        # 8) return result summary
+        return {
+            "proposal": proposal,
+            "result_hash": result_hash,
+            "result_obj": result_obj,
+            "experiment_entry": exp
+        }
+
+    def approve_and_execute(self, proposal_hash: str, approver: str = "user") -> Dict[str,Any]:
+        """
+        Approve (if needed) and execute in one call.
+        """
+        # mark as approved
+        self.approve_proposal(proposal_hash, approver=approver)
+        # locate the latest stored proposal hash: many stores may produce a new hash for updated content;
+        # we will find the newest matching proposal_id
+        rec = self._retrieve(proposal_hash)
+        proposal = rec.get("content")
+        pid = proposal.get("proposal_id")
+        # search DB for latest proposal with same proposal_id
+        try:
+            results = self.adapter.hexdict.query({"type":"perspective_proposal"}, limit=50)
+            latest = None
+            for r in results:
+                c = r.get("content", {})
+                if c.get("proposal_id") == pid:
+                    latest = r
+                    break
+            if latest:
+                phash = latest.get("hash")
+            else:
+                phash = proposal_hash
+        except Exception:
+            phash = proposal_hash
+        return self.execute_proposal(phash, approver=approver)
+
+    # -------------------------
+    # Batch helpers
+    # -------------------------
+    def propose_batch_for_rune(self, parent_hash: str, transforms: List[Dict[str,Any]], proposed_by: str = "user") -> List[str]:
+        """
+        Batch propose multiple transforms for a parent (e.g. many lensing/mirroring variants).
+        transforms: list of {"transform":"rotate", "params": {...}}
+        Returns list of proposal hashes.
+        """
+        phashes = []
+        for t in transforms:
+            ph = self.propose_perspective(parent_hash, t.get("transform"), t.get("params", {}), proposed_by=proposed_by)
+            phashes.append(ph)
+        return phashes
+
+    # -------------------------
+    # Utilities
+    # -------------------------
+    def get_proposal(self, proposal_hash: str) -> Dict[str,Any]:
+        return self._retrieve(proposal_hash).get("content")
+
+
+How to use (example)
+from ubp_adapter import UBPAdapter
+from provenance_manager import ProvenanceManager
+from core.perspective_manager import PerspectiveManager
+
+adapter = UBPAdapter()
+prov_mgr = ProvenanceManager(adapter)
+pm = PerspectiveManager(adapter, prov_mgr, runtime=None, require_approval=True)
+
+# 1) create proposal (parent_hash must reference an existing HexDictionary entry)
+proposal_hash = pm.propose_perspective(parent_hash="abc123...", transform="lens", params={"factor":1.4}, proposed_by="researcherA")
+print("Proposal stored as:", proposal_hash)
+
+# 2) list pending
+print(pm.list_pending())
+
+# 3) approve + execute (user does this after visual review)
+result = pm.approve_and_execute(proposal_hash, approver="e")
+print("Execution result:", result)
+
+
+

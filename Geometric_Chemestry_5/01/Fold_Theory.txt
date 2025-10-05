@@ -1,0 +1,132 @@
+        params = proposal.get("params", {}) or {}
+        transformed_bf = self.apply_perspective_transform(bf, transform, params)
+
+        # 3) compute coherence (NRCI)
+        coh = compute_coherence(transformed_bf)
+        ncri = float(coh.get("ncri", 0.0))
+
+        # 4) produce visualizations
+        prefix = f"pers_{proposal.get('proposal_id')}"
+        img2 = cymatic_projection_and_save(transformed_bf, title=f"{transform} view", out_prefix=prefix)
+        img3 = None
+        try:
+            img3 = render_bitfield_3d(transformed_bf, out_prefix=prefix + "_3d")
+        except Exception:
+            img3 = None
+
+        # 5) store result object (tool-level)
+        result_obj = {
+            "proposal_id": proposal.get("proposal_id"),
+            "parent_hash": parent_hash,
+            "transform": transform,
+            "params": params,
+            "ncri": ncri,
+            "images": {"2d": img2, "3d": img3},
+            "shape": list(transformed_bf.shape),
+            "timestamp": _now_iso()
+        }
+
+        result_hash = self._store(result_obj, metadata={"type": "perspective_result", "tool": "apply_perspective"})
+
+        # 6) update proposal metadata with execution info
+        proposal["status"] = "executed"
+        proposal["executed_at"] = _now_iso()
+        proposal["executed_by"] = approver
+        proposal["result_hash"] = result_hash
+        # store update
+        self._store(proposal, metadata={"type":"perspective_proposal", "proposal_id": proposal.get("proposal_id")})
+
+        # 7) create an experiment-level provenance record via ProvenanceManager
+        lineage = [
+            {"step": 0, "tool": "apply_perspective", "hash": result_hash},
+        ]
+        exp = self.prov_mgr.log_experiment(
+            description=f"Perspective execution: {transform}",
+            query=f"apply {transform} with params {params}",
+            lineage=lineage,
+            status="executed",
+            proposed_by=proposal.get("proposed_by", "agent"),
+            approved_by=approver,
+            evaluation={"ncri": ncri, "verdict": ("accept" if ncri >= self.ncri_alert_threshold else "flag")}
+        )
+
+        # 8) return result summary
+        return {
+            "proposal": proposal,
+            "result_hash": result_hash,
+            "result_obj": result_obj,
+            "experiment_entry": exp
+        }
+
+    def approve_and_execute(self, proposal_hash: str, approver: str = "user") -> Dict[str,Any]:
+        """
+        Approve (if needed) and execute in one call.
+        """
+        # mark as approved
+        self.approve_proposal(proposal_hash, approver=approver)
+        # locate the latest stored proposal hash: many stores may produce a new hash for updated content;
+        # we will find the newest matching proposal_id
+        rec = self._retrieve(proposal_hash)
+        proposal = rec.get("content")
+        pid = proposal.get("proposal_id")
+        # search DB for latest proposal with same proposal_id
+        try:
+            results = self.adapter.hexdict.query({"type":"perspective_proposal"}, limit=50)
+            latest = None
+            for r in results:
+                c = r.get("content", {})
+                if c.get("proposal_id") == pid:
+                    latest = r
+                    break
+            if latest:
+                phash = latest.get("hash")
+            else:
+                phash = proposal_hash
+        except Exception:
+            phash = proposal_hash
+        return self.execute_proposal(phash, approver=approver)
+
+    # -------------------------
+    # Batch helpers
+    # -------------------------
+    def propose_batch_for_rune(self, parent_hash: str, transforms: List[Dict[str,Any]], proposed_by: str = "user") -> List[str]:
+        """
+        Batch propose multiple transforms for a parent (e.g. many lensing/mirroring variants).
+        transforms: list of {"transform":"rotate", "params": {...}}
+        Returns list of proposal hashes.
+        """
+        phashes = []
+        for t in transforms:
+            ph = self.propose_perspective(parent_hash, t.get("transform"), t.get("params", {}), proposed_by=proposed_by)
+            phashes.append(ph)
+        return phashes
+
+    # -------------------------
+    # Utilities
+    # -------------------------
+    def get_proposal(self, proposal_hash: str) -> Dict[str,Any]:
+        return self._retrieve(proposal_hash).get("content")
+
+
+How to use (example)
+from ubp_adapter import UBPAdapter
+from provenance_manager import ProvenanceManager
+from core.perspective_manager import PerspectiveManager
+
+adapter = UBPAdapter()
+prov_mgr = ProvenanceManager(adapter)
+pm = PerspectiveManager(adapter, prov_mgr, runtime=None, require_approval=True)
+
+# 1) create proposal (parent_hash must reference an existing HexDictionary entry)
+proposal_hash = pm.propose_perspective(parent_hash="abc123...", transform="lens", params={"factor":1.4}, proposed_by="researcherA")
+print("Proposal stored as:", proposal_hash)
+
+# 2) list pending
+print(pm.list_pending())
+
+# 3) approve + execute (user does this after visual review)
+result = pm.approve_and_execute(proposal_hash, approver="e")
+print("Execution result:", result)
+
+
+

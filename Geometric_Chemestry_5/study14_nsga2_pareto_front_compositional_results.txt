@@ -1,0 +1,2 @@
+Final_R_Concentration,Temperature_Std_Dev,UBP_Operator_Type,C_rate,M_constant
+0.007914621943385033,2.4754365604337014,compositional,152.71487205556159,16.62439252778228

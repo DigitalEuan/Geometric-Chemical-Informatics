@@ -1,0 +1,4 @@
+UBP_Operator_Type,Optimized_C_rate,Optimized_M_constant,Final_R_Concentration,Optimization_Success
+quadratic,10.00002841591744,3.141592653589793,0.16645422788670086,True
+linear,15.960238970323104,2.718281828459045,0.13634489288842688,True
+compositional,16.083076017258808,10.0,0.13612492197552475,True
